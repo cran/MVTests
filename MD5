@@ -1,11 +1,11 @@
-aa6dcfdae6a7d3d89f1ed33f41e418fe *DESCRIPTION
+3ed582bff651d71a16f68e72f6f88f4c *DESCRIPTION
 57b6aec83502cc491138083e0cfe0f7b *NAMESPACE
 54037e7f5d8790a64d54e7e74e706f66 *R/Bcov.R
 84c00509f0a20506cfc2c0b2466be28c *R/BoxM.R
 60a20cbefc46cba6d8d8f8d212fb0195 *R/Bsper.R
 638c03e89515d04faf0b8473359d6bb1 *R/Coated.R
 8f4b33501a4c68cf8f2f7c55ffe6721a *R/Iris.R
-17e0b1a043801eb3ac59fc0d3d456c18 *R/Manova.R
+61fc4817de74952939150857fd7b552a *R/Manova.R
 1b93898fc34e1461ba3b4e0c9074113a *R/Mpaired.R
 85a2cef5e5384001aea46c27eede1107 *R/OneSampleHT2.R
 61e632a2a4332e836ca3c61a3596481b *R/TwoSamplesHT2.R
@@ -17,7 +17,7 @@ c0f60efe4466fc23107c0ca537102c7b *man/Bcov.Rd
 8d3c5b18c3324dbe38d4c3c5f00bd24e *man/BoxM.Rd
 63a9218ce0e5e09bf2c4c4afa8f0d093 *man/Bsper.Rd
 26af02acfeea18e57315c462eb84ca0b *man/Coated.Rd
-7816feec7f66c4d9cdead5c74c3fda01 *man/Manova.Rd
+b27b129a3c5a24fc6d891b55eddcb499 *man/Manova.Rd
 6333bd9dd11870940748b8d071ed41d4 *man/Mpaired.Rd
 fab3697a647b9ce8c6de247ffc910a0a *man/OneSampleHT2.Rd
 dbabf031f43cd25aff44b529a41a6437 *man/TwoSamplesHT2.Rd

@@ -15,7 +15,8 @@
 #' @importFrom stats cor cov pchisq pf pnorm qchisq qf shapiro.test var
 #' @param data a data frame.
 #' @param group a group vector
-#' @param method The method that will be used for MANOVA
+#' @param method The method that will be used for MANOVA. These methods are "Wilks", "Roy" and "Hotelling-Lawley". 
+#' \code{default method="Wilks"}. 
 #' @param CI a logical argument. If \code{CI="TRUE"}, then the decision 
 #' matrices based on confidence intervals obtained for all variables and 
 #' groups are calculated.
@@ -67,9 +68,6 @@
 #' results.Wilks <- Manova(data=iris[,1:4],group=iris[,5],alpha=0.01)
 #' summary(results.Wilks)
 #' 
-#' # Pillai's Test
-#' results.Pillai <- Manova(data=iris[,1:4],group=iris[,5],method="Pillai")
-#' summary(results.Pillai)
 #'  
 #' # Hotelling and Lawley's Test
 #' results.HL <- Manova(data=iris[,1:4],group=iris[,5], method="Hotelling-Lawley")
@@ -78,9 +76,12 @@
 #' # Roy's Test
 #' results.Roy <- Manova(data=iris[,1:4],group=iris[,5], method="Roy")
 #' summary(results.Roy)
+#' 
+#' #Roy's Test with Confidence Intervals 
 #' results.RoyCI <- Manova(data=iris[,1:4],group=iris[,5], method="Roy",CI=TRUE)
 #' summary(results.RoyCI)
 #'
+#' 
 #' # James's Test
 #' results.James <- Manova(data=iris[,1:4],group=iris[,5],Homogeneity=FALSE)
 #' summary(results.James)
@@ -95,11 +96,19 @@
  group<-as.factor(group)
  Levels<-levels(group)
  X<-cbind(data,group)
- p<-ncol(data);n<-nrow(data);g=length(levels(group));VE<-n-g; VH<-g-1
- N.star<-(VE-p-1)/2; s<-min(VH,p); r<-max(VH,p); m<-(abs(VH-p)-1)/2
+ p<-ncol(data)
+ n<-nrow(data)
+ g=length(levels(group))
+ VE<-(n-g)
+ VH<-(g-1)
+ N.star<-(VE-p-1)/2
+ s<-min(VH,p)
+ r<-max(VH,p)
+ m<-(abs(VH-p)-1)/2
  
  ## Calculation B and W
- ns<-NULL;X.mean.group<-matrix(c(rep(0,p*g)),nrow=p,ncol=g)
+ ns<-NULL
+ X.mean.group<-matrix(c(rep(0,p*g)),nrow=p,ncol=g)
  W<-B<-matrix(rep(0,p*p),p,p)
  for (i in 1:g) {
  ns[i]<-length(which(group==Levels[i]))
@@ -145,20 +154,6 @@
  pval<-pf(q=F, df1=(s*(2*m+s+1)),df2=(2*(s*N.star+1)), lower.tail=FALSE)
  Result<-list(Method="Hotelling-Lawley",Test.Stat=T0.sq, App.Stat=F,df=df, p.value=pval,Descriptive=Descriptive,Homogeneity=TRUE,Test=Name,CI=FALSE)
  }
-
- # Pillai Method
- if (method=="Pillai") {
- T=0
- for (i in 1:p){
- T<-T+eigens[i]/(eigens[i]+1)
- }
- F<-((2*N.star+s+1)*T)/((2*m+s+1)*(s-T))
- df<-c((s*(2*m+s+1)),(s*(2*N.star+s+1)))
- pval<-pf(q=F, df1=(s*(2*m+s+1)), df2=(s*(2*N.star+s+1)), lower.tail=FALSE)
- Result<-list(Method="Pillai",Test.Stat=T,App.Stat=F,df=df,p.value=pval,
- Descriptive=Descriptive,Homogeneity=TRUE,Test=Name,CI=FALSE)
- }
-
 
  # Roy Method
  if (method=="Roy") {
@@ -270,8 +265,6 @@
  Result<-list(Method="James (1954)",Test.Stat=J,App.Stat=Chisq.adjucted.table,df=r,
  p.value=pval,Descriptive=Descriptive,Homogeneity=FALSE,Test=Name)
  }
-
-
 
 
  class(Result)<-c("MVTests","list")

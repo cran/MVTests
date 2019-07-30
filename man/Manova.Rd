@@ -12,7 +12,8 @@ Manova(data, group, method = "Wilks", CI = "FALSE", alpha = 0.05,
 
 \item{group}{a group vector}
 
-\item{method}{The method that will be used for MANOVA}
+\item{method}{The method that will be used for MANOVA. These methods are "Wilks", "Roy" and "Hotelling-Lawley". 
+\code{default method="Wilks"}.}
 
 \item{CI}{a logical argument. If \code{CI="TRUE"}, then the decision 
 matrices based on confidence intervals obtained for all variables and 
@@ -69,9 +70,6 @@ data(iris)
 results.Wilks <- Manova(data=iris[,1:4],group=iris[,5],alpha=0.01)
 summary(results.Wilks)
 
-# Pillai's Test
-results.Pillai <- Manova(data=iris[,1:4],group=iris[,5],method="Pillai")
-summary(results.Pillai)
  
 # Hotelling and Lawley's Test
 results.HL <- Manova(data=iris[,1:4],group=iris[,5], method="Hotelling-Lawley")
@@ -80,8 +78,11 @@ summary(results.HL)
 # Roy's Test
 results.Roy <- Manova(data=iris[,1:4],group=iris[,5], method="Roy")
 summary(results.Roy)
+
+#Roy's Test with Confidence Intervals 
 results.RoyCI <- Manova(data=iris[,1:4],group=iris[,5], method="Roy",CI=TRUE)
 summary(results.RoyCI)
+
 
 # James's Test
 results.James <- Manova(data=iris[,1:4],group=iris[,5],Homogeneity=FALSE)
