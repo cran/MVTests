@@ -10,7 +10,7 @@
 #'
 #' @param data a data frame.
 #'
-#' @importFrom stats cor cov pchisq pf pnorm qchisq qf shapiro.test var
+#' @importFrom stats cor cov pchisq pf pnorm qchisq qf var
 #' @export
 #' @return a list with 4 elements:
 #' \item{ChiSquare}{The value of Test Statistic}

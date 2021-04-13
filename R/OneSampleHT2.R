@@ -10,7 +10,7 @@
 #' When \code{H0} is rejected, this function computes confidence intervals
 #' for all variables.
 #' 
-#' @importFrom stats cor cov pchisq pf pnorm qchisq qf shapiro.test var
+#' @importFrom stats cor cov pchisq pf pnorm qchisq qf var
 #' @param data a data frame.
 #' @param mu0 mean vector that is used to test whether population mean 
 #' parameter is equal to it.

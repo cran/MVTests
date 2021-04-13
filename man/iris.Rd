@@ -4,7 +4,8 @@
 \name{iris}
 \alias{iris}
 \title{Iris Data}
-\format{A data frame with 150 rows and 5 columns. The columns
+\format{
+A data frame with 150 rows and 5 columns. The columns
 are as follows:
 \describe{
   \item{Sepal.Length}{The Sepal length values of iris flowers}
@@ -12,7 +13,8 @@ are as follows:
   \item{Petal.Length}{The Petal length values of iris flowers}
   \item{Petal.Width}{The Petal width values of iris flowers} 
   \item{Species}{The species of iris flowers}
-}}
+}
+}
 \source{
 https://archive.ics.uci.edu/ml/datasets/Iris
 }

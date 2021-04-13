@@ -4,8 +4,7 @@
 #' \code{Bcov} function tests whether the covariance matrix is equal to a 
 #' given matrix or not.
 #'
-#' @importFrom stats cor cov pchisq pf pnorm qchisq qf shapiro.test var
-#' @importFrom matrixcalc is.positive.definite
+#' @importFrom stats cor cov pchisq pf pnorm qchisq qf var
 #' @details
 #' This function computes  Bartlett's test statistic for the covariance 
 #' matrix of one sample.
@@ -32,8 +31,6 @@
  Bcov<-function(data,Sigma){
  Name<-"Bcov"
  
-  if(is.positive.definite(Sigma, tol=1e-8)!=TRUE)
-        stop("The covariance matrix must be positive definite!")
 
  data<-as.matrix(data)
  N<-nrow(data)

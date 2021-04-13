@@ -37,11 +37,6 @@ G<-c(rep(1,50),rep(2,50))
 result.twosamples <- TwoSamplesHT2(data=iris[1:100,1:4],group=G,alpha=0.05)
 summary(result.twosamples)
 
- #One Way MANOVA
-data(iris)
-results.Wilks <- Manova(data=iris[,1:4],group=iris[,5],alpha=0.05)
-summary(results.Wilks)
-
 #Box's M Test
 data(iris)
 result.BoxM <- BoxM(data=iris[,1:4],group=iris[,5])
@@ -51,13 +46,6 @@ summary(result.BoxM)
 data(iris)
 result.Bsper <- Bsper(data=iris[,1:4])
 summary(result.Bsper)
-
-#Multivariate Shapio-Wilk Test
-data(iris)
-result.mvShapiro <- mvShapiro(data=iris[,1:4])
-summary(result.mvShapiro)
-result.mvShapiro.group <- mvShapiro(data=iris[,1:4],group=TRUE,G=iris[,5])
-summary(result.mvShapiro.group)
 
 #Bartlett's Test for One Sample Covariance Matrix
 data(iris) 

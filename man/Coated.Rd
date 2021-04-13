@@ -4,7 +4,8 @@
 \name{Coated}
 \alias{Coated}
 \title{Coated}
-\format{A data frame with 15 rows and 5 columns. The columns
+\format{
+A data frame with 15 rows and 5 columns. The columns
 are as follows:
 \describe{
   \item{Location}{The location numbers of observations.}
@@ -12,7 +13,8 @@ are as follows:
   \item{Coating1.Number1}{The Number values in the first treatment}
   \item{Coating2.Depth2}{The Depth values in the second treatment} 
   \item{Coating2.Number2}{The Number values in the second treatment}
-}}
+}
+}
 \source{
 The data set is used in the book entitled
 Methods of Multivariate Analysis (Rencher,2003).

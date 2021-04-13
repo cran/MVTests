@@ -9,7 +9,7 @@
 #' This function computes one sample Hotelling T^2 statistics for paired 
 #' data sets.
 #' 
-#' @importFrom stats cor cov pchisq pf pnorm qchisq qf shapiro.test var
+#' @importFrom stats cor cov pchisq pf pnorm qchisq qf var
 #' @param T1 The first treatment data.
 #' @param T2 The second treatment data.
 #' @export

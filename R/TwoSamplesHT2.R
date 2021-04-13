@@ -13,7 +13,7 @@
 #' Moreover, when covariance matrices are not homogeneity, the approach proposed
 #' by D. G. Nel and V. D. Merwe (1986) is used.
 #' 
-#' @importFrom stats cor cov pchisq pf pnorm qchisq qf shapiro.test var
+#' @importFrom stats cor cov pchisq pf pnorm qchisq qf var
 #' @param data a data frame.
 #' @param group a group vector consisting of 1 and 2 values.
 #' @param alpha Significance Level that will be used for confidence intervals. 

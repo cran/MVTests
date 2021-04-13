@@ -9,7 +9,7 @@
 #' The hypotheses are defined as H0:The Covariance matrices are homogeneous and 
 #' H1:The Covariance matrices are not homogeneous 
 #' 
-#' @importFrom stats cor cov pchisq pf pnorm qchisq qf shapiro.test var
+#' @importFrom stats cor cov pchisq pf pnorm qchisq qf var
 #' @param data a data frame.
 #' @param group grouping vector.
 #'

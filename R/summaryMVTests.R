@@ -8,7 +8,7 @@
 #' This function prints a summary of the results of multivariate hypothesis 
 #' tests in the \code{MVTests} package.
 #' 
-#' @importFrom stats cor cov pchisq pf pnorm qchisq qf shapiro.test var
+#' @importFrom stats cor cov pchisq pf pnorm qchisq qf var
 #' @param object an object of class \code{MVTests}. 
 #' @param ... additional parameters.
 #' @method summary MVTests
@@ -30,11 +30,6 @@
 #' result.twosamples <- TwoSamplesHT2(data=iris[1:100,1:4],group=G,alpha=0.05)
 #' summary(result.twosamples)
 #'
-#'  #One Way MANOVA
-#' data(iris)
-#' results.Wilks <- Manova(data=iris[,1:4],group=iris[,5],alpha=0.05)
-#' summary(results.Wilks)
-#' 
 #' #Box's M Test
 #' data(iris)
 #' result.BoxM <- BoxM(data=iris[,1:4],group=iris[,5])
@@ -44,13 +39,6 @@
 #' data(iris)
 #' result.Bsper <- Bsper(data=iris[,1:4])
 #' summary(result.Bsper)
-#'
-#' #Multivariate Shapio-Wilk Test
-#' data(iris)
-#' result.mvShapiro <- mvShapiro(data=iris[,1:4])
-#' summary(result.mvShapiro)
-#' result.mvShapiro.group <- mvShapiro(data=iris[,1:4],group=TRUE,G=iris[,5])
-#' summary(result.mvShapiro.group)
 #'
 #' #Bartlett's Test for One Sample Covariance Matrix
 #' data(iris) 
@@ -117,73 +105,7 @@ print(object$R)
 
 }
 
- ####### MANOVA
-if (object$Test=="MANOVA") {  
 
-	if (object$Homogeneity=="TRUE") {
- 
-cat("       One Way Multivariate Analysis of Variance","\n\n")
-cat("Method :",object$Method,"\n")
-cat("The Value of Test Statistic =",object$Test.Stat,"\n",
-"F value =",round(object$App.Stat,3),
-", df1 =",object$df[1],", df2 =",object$df[2],", p-value:",format.pval(object$p.value,digits = 3),"\n\n")
-
-cat("   	Descriptive Statistics\n")
-print(object$Descriptive)
-cat("\n\n")
-
-
-cat("   Detection important variable(s)\n")
-if (object$Method!="Roy"){
-print(" Confidence Intervals are calculated only in the Roy Method.")
-} else if (object$CI=="FALSE"){
-print(" To calculate confidence intervals, it must be CI=TRUE.")
-} else {
-print(object$Decision.Matrices)
-}} 
-
-if (object$Homogeneity=="FALSE") {
- 
-cat("       One Way Multivariate Analysis of Variance","\n\n")
-cat("     (The Covariance Matrices are not homogeneity!)","\n\n")
-cat("Method :",object$Method,"\n")
-cat("The Value of Test Statistic =",object$Test.Stat,"\n",
-"Chi-Squared value =",round(object$App.Stat,3),
-"df =",object$df,", p-value:",format.pval(object$p.value,digits = 3),"\n\n")
-
-cat("   	Descriptive Statistics\n")
-print(object$Descriptive)
-cat("\n\n")
-}
-
-}  #MANOVA Final
-
-
-
-
-
-
- ####### Multivariate Shapiro-Wilk Test 
-if (object$Test=="mvShapiro") {
-
-     if(object$group=="FALSE") {  
-
-cat("       Multivariate Shapiro Wilk Test for Normality","\n\n")
-cat("The Value of Test Statistic =",object$Stat,"\n",
-"p-value:",format.pval(object$p.value,digits = 3),"\n\n")
-
-     }
-       
-     if (object$group=="TRUE") {  
-
-cat("       Multivariate Shapiro Wilk Test for Normality with Grouped Data","\n\n")
-cat("       The Value of Test Statistic and The P-Values:","\n\n")
-Result<-cbind(object$Stat,object$p.value[,2])
-colnames(Result)<-c("Groups","Statistics","p-values")
-print(Result)
-
-     }
- }
 
 ## Bartlett's Test for one covariance matrices 
 if (object$Test=="Bcov") {  
