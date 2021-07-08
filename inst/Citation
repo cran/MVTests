@@ -1,0 +1,20 @@
+citHeader("To cite MVTests in publications use:") 
+
+citEntry(entry = "Article",
+  title        = "An R Package for Multivariate Hypothesis Tests: MVTests",
+  author       = personList(as.person("Hasan Bulut")),
+  journal      = "Technological Applied Sciences",
+  year         = "2019",
+  volume       = "14",
+  number       = "4",
+  pages        = "132--138",
+  url          = "https://dergipark.org.tr/tr/pub/nwsatecapsci/issue/49784/599944",
+
+  textVersion  =
+  paste("Hasan Bulut (2019).",
+        "An R Package for Multivariate Hypothesis Tests: MVTests.",
+        "Technological Applied Sciences, 14(4), 132-138.",
+        "URL https://dergipark.org.tr/tr/pub/nwsatecapsci/issue/49784/599944")
+)
+
+
